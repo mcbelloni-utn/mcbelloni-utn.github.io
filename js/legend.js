@@ -1,5 +1,5 @@
 /**
- * legend.js — Leyenda jerárquica (GIAR → proyectos → subproyectos)
+ * legend.js — Leyenda jerárquica (LABO → proyectos → subproyectos)
  *
  * Cada ítem tiene hover (highlight) y click (panel de detalle).
  * Los niveles se muestran con indentación progresiva.
@@ -12,8 +12,8 @@ import { showPanel }                     from "./panel.js";
 export function buildLegend() {
   const container = document.getElementById('legend-items');
 
-  // GIAR — cuenta todos los integrantes del árbol
-  const laboNode = nodes.find(n => n.id === 'giar');
+  // LABO — cuenta todos los integrantes del árbol
+  const laboNode = nodes.find(n => n.id === 'labo');
   if (laboNode) {
     _addItem(container, laboNode, _subtreeSize('labo'), 0);
   }
