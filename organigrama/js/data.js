@@ -26,16 +26,16 @@
 // URL de tu Web App de Google Apps Script
 const URL_API = "https://script.google.com/macros/s/AKfycbzN-oFai6uJk5b4IKp1WkDfHSoUNgINkftWKMgOSOfco67vgqC3UWkjtIY7k0sf2rIPEQ/exec";
 
-let datosper = [];
+let personas = [];
 
 async function cargarDatosSheet() {
   try {
     const response = await fetch(URL_API);
-    const datosper = await response.json();
+    const personas = await response.json();
     
     // Aquí tienes los datos listos para usar en tu JS
-    console.log("Datos cargados:", datosper);
-    
+    console.log("Datos cargados:", personas);
+        
   } catch (error) {
     console.error("Error al cargar los datos:", error);
   }
@@ -123,7 +123,7 @@ export const DATA = {
     },
   ],
 
-  personas = datosper, // Cargados dinámicamente desde Google Sheets (ver función cargarDatosSheet() más arriba)
+  //personas = datosper, // Cargados dinámicamente desde Google Sheets (ver función cargarDatosSheet() más arriba)
 
   /*
   // ── Personas ───────────────────────────────────────────────────────────────
