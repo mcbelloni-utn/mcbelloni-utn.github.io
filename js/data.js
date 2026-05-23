@@ -78,7 +78,7 @@ export const DATA = {
           color:  'var(--c-olive)',
           meta:   {
             'Objetivo': 'Diseño estructural',
-            'Colaboración': 'Dto. Ing. Mecánica'
+            'Colaboración': 'Dto. Ing. Mecánica',
           },
         },
         {
@@ -86,8 +86,8 @@ export const DATA = {
           nombre: 'Laboratorio Físico Químico',
           color:  'var(--c-plum)',
           meta:   {
-			 'Objetivo': 'Sin definir.' 
-			 'Colaboración': 'Dto. Ing. Química'
+			 'Objetivo': 'Sin definir.', 
+			 'Colaboración': 'Dto. Ing. Química',
 		  },
         },
       ],
