@@ -1,7 +1,7 @@
 /**
  * panel.js — Panel de detalle lateral
  *
- * Tipos de nodo soportados: 'giar' | 'project' | 'subproject' | 'person'
+ * Tipos de nodo soportados: 'labo' | 'project' | 'subproject' | 'person'
  * La metadata de proyectos/subproyectos se muestra como "*clave*: valor".
  * Al clickear una persona se muestra su foto.
  */
