@@ -25,12 +25,12 @@ export const DATA = {
 
   // ── Nodo raíz ──────────────────────────────────────────────────────────────
   giar: {
-    id:     'giar',
-    nombre: 'GIAR',
+    id:     'lab_rob',
+    nombre: 'Laboratorio Robótica',
     color:  '#0E68D8',
     meta: {
-      'Institución': 'UTN.BA',
-      'Grupo':        'Inteligencia Artificial y Robótica',
+      'Institución': 'UTN.Avellaneda',
+      'Grupo':        'Laboratorio Robótica',
     },
   },
 
