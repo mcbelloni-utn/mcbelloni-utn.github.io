@@ -108,7 +108,14 @@ export const DATA = {
       rol: 'Electrónica',
       linkedin: 'https://www.linkedin.com/in/mcbelloni/',
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Esp.', 'Año de incorporación': '2026' },
-      pertenece: [{ id: 'gestion', rol: 'Equipo Gestión' }, { id: 'rover', rol: 'Director' }, { id: 'labo', rol: 'Director' }],
+      pertenece: [{ id: 'rover', rol: 'Director' }, { id: 'labo', rol: 'Director' }],
+    },
+	   {
+      id: 'p1', nombre: 'Marcelo', apellido: 'Belloni',
+      rol: 'Electrónica',
+      linkedin: 'https://www.linkedin.com/in/mcbelloni/',
+      meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Esp.', 'Año de incorporación': '2026' },
+      pertenece: [{ id: 'gestion', rol: 'Equipo Gestión' }],
     },
 	{
       id: 'p2', nombre: 'Gonzalo', apellido: 'Ruiz',
