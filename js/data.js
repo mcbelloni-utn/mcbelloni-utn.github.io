@@ -2,7 +2,7 @@
  * data.js — Fuente de verdad del organigrama
  *
  * Estructura de 3 jerarquías:
- *   GIAR → proyectos → subproyectos → personas
+ *   LABO → proyectos → subproyectos → personas
  *
  * Las personas pueden pertenecer a cualquier nivel via el campo `pertenece`.
  * Los proyectos y subproyectos aceptan un objeto `meta` con pares clave-valor
@@ -24,8 +24,8 @@
 export const DATA = {
 
   // ── Nodo raíz ──────────────────────────────────────────────────────────────
-  giar: {
-    id:     'lab_rob',
+  labo: {
+    id:     'labo',
     nombre: 'Laboratorio Robótica',
     color:  '#0E68D8',
     meta: {
@@ -37,15 +37,15 @@ export const DATA = {
   // ── Proyectos (con subproyectos opcionales) ────────────────────────────────
   proyectos: [
     {
-      id:     'nanosats',
-      nombre: 'Nanosatélites',
+      id:     'talos',
+      nombre: 'TALOS (Rover Lunar)',
       color:  'var(--c-amber)',
       meta: {
-        'Título del proyecto': 'Diseño e implementación del sistema de una computadora de a bordo destinada a nanosatélites',
+        'Título del proyecto': 'Diseño de un rover lunar con iA embebida',
         'Código': 'BACCEC748',
         'Categoría': 'Electrónica, Computación y Comunicaciones',
-        'Año de inicio': '2026',
-        'Año de finalización': '2029',
+        'Año de inicio': '2027',
+        'Año de finalización': '2030',
       },
       subproyectos: [
         {
