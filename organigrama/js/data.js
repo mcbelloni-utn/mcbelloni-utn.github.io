@@ -21,6 +21,27 @@
  *   O cualquier hex: '#e07b54'
  */
 
+
+// Carga datos desde Google Sheets usando la API de tu Web App de Google Apps Script
+// URL de tu Web App de Google Apps Script
+const URL_API = "https://script.google.com/macros/s/AKfycbyvdbVkjqfBRvj6kv9kMVM7zOTPiJpVYb7ZJl73Fwyk7FN78Dvrn2c3HgAsG8QiqfCmng/exec";
+
+async function cargarDatosSheet() {
+  try {
+    const response = await fetch(URL_API);
+    const datos = await response.json();
+    
+    // Aquí tienes los datos listos para usar en tu JS
+    console.log("Datos cargados:", datos);
+    
+  } catch (error) {
+    console.error("Error al cargar los datos:", error);
+  }
+}
+
+cargarDatosSheet();
+
+
 export const DATA = {
 
   // ── Nodo raíz ──────────────────────────────────────────────────────────────
@@ -99,25 +120,6 @@ export const DATA = {
       ],
     },
   ],
-
-// Carga datos desde Google Sheets usando la API de tu Web App de Google Apps Script
-// URL de tu Web App de Google Apps Script
-const URL_API = "https://script.google.com/macros/s/AKfycbyvdbVkjqfBRvj6kv9kMVM7zOTPiJpVYb7ZJl73Fwyk7FN78Dvrn2c3HgAsG8QiqfCmng/exec";
-
-async function cargarDatosSheet() {
-  try {
-    const response = await fetch(URL_API);
-    const datos = await response.json();
-    
-    // Aquí tienes los datos listos para usar en tu JS
-    console.log("Datos cargados:", datos);
-    
-  } catch (error) {
-    console.error("Error al cargar los datos:", error);
-  }
-}
-
-cargarDatosSheet();
 
   // ── Personas ───────────────────────────────────────────────────────────────
   personas: [
