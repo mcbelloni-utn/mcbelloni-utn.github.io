@@ -24,7 +24,7 @@
 
 // Carga datos desde Google Sheets usando la API de tu Web App de Google Apps Script
 // URL de tu Web App de Google Apps Script
-const URL_API = "https://script.google.com/macros/s/AKfycbzZYuZjo_9in6wmNd05nW8i4tajpEymOlQgylEVQnG4m0IcjfqwFEhORh4H6sboSXHjsA/exec";
+const URL_API = "https://script.google.com/macros/s/AKfycbzN-oFai6uJk5b4IKp1WkDfHSoUNgINkftWKMgOSOfco67vgqC3UWkjtIY7k0sf2rIPEQ/exec";
 
 async function cargarDatosSheet() {
   try {
