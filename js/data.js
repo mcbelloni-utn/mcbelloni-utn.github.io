@@ -26,7 +26,7 @@ export const DATA = {
   // ── Nodo raíz ──────────────────────────────────────────────────────────────
   labo: {
     id:     'labo',
-    nombre: 'LABO',
+    nombre: 'Lab. de Robótica',
     color:  '#0E68D8',
     meta: {
       'Institución': 'UTN.Avellaneda',
@@ -37,12 +37,24 @@ export const DATA = {
   // ── Proyectos (con subproyectos opcionales) ────────────────────────────────
   proyectos: [
     {
+      id:     'gestion',
+      nombre: 'Equipo de Gestión',
+      color:  'var(--c-amber)',
+      meta: {
+        'Título del proyecto': 'Equipo de Gestión del Laboratorio',
+        'Código': '---',
+        'Categoría': 'Electrónica, Computación y Comunicaciones',
+        'Año de inicio': '---',
+        'Año de finalización': '---',
+      },
+	},
+	{
       id:     'rover',
       nombre: 'TALOS (Rover Lunar)',
       color:  'var(--c-amber)',
       meta: {
-        'Título del proyecto': 'Diseño e implementación del sistema de una computadora de a bordo destinada a nanosatélites',
-        'Código': 'BACCEC748',
+        'Título del proyecto': 'Diseño e implementación de un rover lunar con IA embebida',
+        'Código': '1047',
         'Categoría': 'Electrónica, Computación y Comunicaciones',
         'Año de inicio': '2026',
         'Año de finalización': '2029',
