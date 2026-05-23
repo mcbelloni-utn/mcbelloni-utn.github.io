@@ -42,7 +42,7 @@ export function hidePanel() {
 
 function _html(d) {
   if (d.type === 'person')     return _personHTML(d);
-  if (d.type === 'giar')       return _giarHTML(d);
+  if (d.type === 'labo')       return _laboHTML(d);
   if (d.type === 'project')    return _projectHTML(d);
   if (d.type === 'subproject') return _subprojectHTML(d);
   return '';
