@@ -26,7 +26,7 @@ export const DATA = {
   // ── Nodo raíz ──────────────────────────────────────────────────────────────
   labo: {
     id:     'labo',
-    nombre: 'Lab. de Robótica',
+    nombre: 'Lab. Robótica',
     color:  '#0E68D8',
     meta: {
       'Institución': 'UTN.Avellaneda',
@@ -56,51 +56,39 @@ export const DATA = {
         'Título del proyecto': 'Diseño e implementación de un rover lunar con IA embebida',
         'Código': '1047',
         'Categoría': 'Electrónica, Computación y Comunicaciones',
-        'Año de inicio': '2026',
-        'Año de finalización': '2029',
+        'Año de inicio': '2027',
+        'Año de finalización': '2030',
       },
       subproyectos: [
         {
-          id:     'HW',
-          nombre: 'Hardware',
+          id:     'OBC',
+          nombre: 'OBC',
           color:  'var(--c-coral)',
-          meta:   { 'Objetivo': 'Diseño, implementación y validación del circuito impreso de la OBC' },
+          meta:   { 'Objetivo': 'Diseño, implementación y validación de la IA y Navegación' },
         },
         {
-          id:     'SW',
-          nombre: 'Flight Software',
+          id:     'POT',
+          nombre: 'Potencia',
           color:  'var(--c-sage)',
-          meta:   { 'Objetivo': 'Migración de cFS al micro seleccionado' },
+          meta:   { 'Objetivo': 'EPS' },
         },
         {
-          id:     'payload',
-          nombre: 'Dosimeter Payload',
+          id:     'ESTR',
+          nombre: 'Diseño estructural',
           color:  'var(--c-olive)',
           meta:   {
-            'Objetivo': 'Diseño, implementación y validación de una carga útil basada en dosimetría gamma y detección de SEUs',
-            'Colaboración': 'FiUBA'
+            'Objetivo': 'Diseño estructural',
+            'Colaboración': 'Dto. Ing. Mecánica'
           },
         },
         {
-          id:     'rf',
-          nombre: 'RF',
+          id:     'LAB',
+          nombre: 'Laboratorio Físico Químico',
           color:  'var(--c-plum)',
-          meta:   { 'Objetivo': 'Sin definir.' },
-        },
-        {
-          id:     'concurso',
-          nombre: 'CubeDesign',
-          color:  'var(--c-amber)',
-          meta:   { 'Objetivo': 'Ganar concurso CubeDesign y capacitar a los estudiantes involucrados en sistemas aeroespaciales' },
-        },
-        {
-          id:     'antartida',
-          nombre: 'Antártida',
-          color:  'var(--c-steel)',
           meta:   {
-            'Objetivo': 'Desarrollo de sistema autónomo para la captura y transmisión de datos científicos de mediante LoRaWAN',
-            'Colaboración': 'Instituto Antártico Argentino (IAA)'
-          },
+			 'Objetivo': 'Sin definir.' 
+			 'Colaboración': 'Dto. Ing. Química'
+		  },
         },
       ],
     },
