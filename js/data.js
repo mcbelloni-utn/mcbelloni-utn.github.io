@@ -2,7 +2,7 @@
  * data.js — Fuente de verdad del organigrama
  *
  * Estructura de 3 jerarquías:
- *   GIAR → proyectos → subproyectos → personas
+ *   LABO → proyectos → subproyectos → personas
  *
  * Las personas pueden pertenecer a cualquier nivel via el campo `pertenece`.
  * Los proyectos y subproyectos aceptan un objeto `meta` con pares clave-valor
@@ -24,9 +24,9 @@
 export const DATA = {
 
   // ── Nodo raíz ──────────────────────────────────────────────────────────────
-  giar: {
-    id:     'giar',
-    nombre: 'GIAR',
+  labo: {
+    id:     'labo',
+    nombre: 'LABO',
     color:  '#0E68D8',
     meta: {
       'Institución': 'UTN.BA',
@@ -210,7 +210,7 @@ export const DATA = {
       rol: 'Electrónica',
       linkedin: 'https://www.linkedin.com/in/mcbelloni/',
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Esp.', 'Año de incorporación': '2026' },
-      pertenece: [{ id: 'giar', rol: 'Director' }, { id: 'nanosats', rol: 'Director' }],
+      pertenece: [{ id: 'labo', rol: 'Director' }, { id: 'nanosats', rol: 'Director' }],
     },
     {
       id: 'p17', nombre: 'Facundo Daniel', apellido: 'Repetto',

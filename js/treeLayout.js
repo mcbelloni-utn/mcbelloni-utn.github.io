@@ -70,9 +70,9 @@ function _buildTree() {
       .map(p => ({ id: p.id, assignment: assignment.get(p.id) }));
 
   return {
-    id: 'giar',
+    id: 'labo',
     children: [
-      ...personsOf('giar'),
+      ...personsOf('labo'),
       ...DATA.proyectos.map(proj => ({
         id: proj.id,
         children: [
