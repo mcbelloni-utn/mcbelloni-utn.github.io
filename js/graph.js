@@ -1,9 +1,9 @@
 /**
  * graph.js — Motor de visualización D3
  *
- * Soporta 3 jerarquías: GIAR → proyectos → subproyectos → personas
+ * Soporta 3 jerarquías: LABO → proyectos → subproyectos → personas
  *
- * Tipos de nodo: 'giar' | 'project' | 'subproject' | 'person'
+ * Tipos de nodo: 'labo' | 'project' | 'subproject' | 'person'
  * Tipos de enlace: 'hierarchy' (sólido) | 'membership' (punteado)
  *
  * Exportaciones:
@@ -51,8 +51,8 @@ function resolveColor(c) {
 
 // ─── Construcción de nodos no-persona ─────────────────────────────────────────
 
-const _giarNode = { ...DATA.giar, type: 'giar', radius: 68 };
-_giarNode.color = resolveColor(_giarNode.color);
+const _laboNode = { ...DATA.labo, type: 'labo', radius: 68 };
+_laboNode.color = resolveColor(_laboNode.color);
 
 const _projectNodes = DATA.proyectos.map(({ subproyectos: _s, ...p }) => {
   const n = { ...p, type: 'project', radius: 52 };
@@ -76,7 +76,7 @@ export const nodeMap = Object.fromEntries(
 // ─── Todos los nodos ──────────────────────────────────────────────────────────
 
 export const nodes = [
-  _giarNode,
+  _laboNode,
   ..._projectNodes,
   ..._subprojectNodes,
   ...DATA.personas.map(p => ({ ...p, type: 'person', radius: 26 })),
@@ -194,7 +194,7 @@ giarSel.append('circle')
   .attr('stroke-dasharray', '4 5');
 
 giarSel.append('text')
-  .attr('class', 'giar-label')
+  .attr('class', 'labo-label')
   .attr('y', 7)
   .attr('fill', d => d.color)
   .text(d => d.nombre);
