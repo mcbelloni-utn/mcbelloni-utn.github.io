@@ -138,11 +138,11 @@ export const simulation = d3.forceSimulation(nodes)
       const scale = s < 480 ? 0.5 : s < 700 ? 0.72 : 1;
       if (l.kind === 'membership') return 85 * scale;
       const sid = l.source.id ?? l.source;
-      return (sid === 'giar' ? 160 : 115) * scale;
+      return (sid === 'labo' ? 160 : 115) * scale;
     })
     .strength(l => l.kind === 'hierarchy' ? 0.8 : 0.45))
   .force('charge', d3.forceManyBody().strength(d => {
-    if (d.type === 'giar')       return -1600;
+    if (d.type === 'labo')       return -1600;
     if (d.type === 'project')    return -900;
     if (d.type === 'subproject') return -450;
     return -280;
@@ -177,15 +177,15 @@ export const nodeSel = nodeLayer.selectAll('g.node')
       .on('end',   (e, d) => { if(isTreeMode()) return; if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
   );
 
-// — GIAR —
-const giarSel = nodeSel.filter(d => d.type === 'giar');
+// — LABO —
+const laboSel = nodeSel.filter(d => d.type === 'labo');
 
-giarSel.append('circle')
+laboSel.append('circle')
   .attr('r', d => d.radius)
   .attr('fill', d => d.color)
   .attr('fill-opacity', 0.12);
 
-giarSel.append('circle')
+laboSel.append('circle')
   .attr('r', d => d.radius)
   .attr('fill', 'none')
   .attr('stroke', d => d.color)
@@ -193,7 +193,7 @@ giarSel.append('circle')
   .attr('stroke-width', 1.5)
   .attr('stroke-dasharray', '4 5');
 
-giarSel.append('text')
+laboSel.append('text')
   .attr('class', 'labo-label')
   .attr('y', 7)
   .attr('fill', d => d.color)
