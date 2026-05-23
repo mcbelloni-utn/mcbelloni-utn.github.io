@@ -1,5 +1,5 @@
 /**
- * legend.js — Leyenda jerárquica (LABO → proyectos → subproyectos)
+ * legend.js — Leyenda jerárquica (GIAR → proyectos → subproyectos)
  *
  * Cada ítem tiene hover (highlight) y click (panel de detalle).
  * Los niveles se muestran con indentación progresiva.
@@ -12,10 +12,10 @@ import { showPanel }                     from "./panel.js";
 export function buildLegend() {
   const container = document.getElementById('legend-items');
 
-  // LABO — cuenta todos los integrantes del árbol
-  const laboNode = nodes.find(n => n.id === 'labo');
-  if (laboNode) {
-    _addItem(container, laboNode, _subtreeSize('labo'), 0);
+  // GIAR — cuenta todos los integrantes del árbol
+  const giarNode = nodes.find(n => n.id === 'giar');
+  if (giarNode) {
+    _addItem(container, giarNode, _subtreeSize('giar'), 0);
   }
 
   // Proyectos y sus subproyectos
@@ -36,7 +36,7 @@ export function buildLegend() {
 // Devuelve el Set de todos los nodeIds que forman el subárbol de nodeId
 function _subtreeNodeIds(nodeId) {
   const ids = new Set([nodeId]);
-  if (nodeId === 'labo') {
+  if (nodeId === 'giar') {
     DATA.proyectos.forEach(p => {
       ids.add(p.id);
       (p.subproyectos ?? []).forEach(sp => ids.add(sp.id));
@@ -84,14 +84,14 @@ function _addItem(container, nodeData, count, level) {
 function _getRelated(nodeData) {
   const related = new Set([nodeData.id]);
 
-  if (nodeData.type === 'labo') {
+  if (nodeData.type === 'giar') {
     DATA.proyectos.forEach(p => related.add(p.id));
-    DATA.personas.forEach(p => { if (p.pertenece.some(m => m.id === 'labo')) related.add(p.id); });
+    DATA.personas.forEach(p => { if (p.pertenece.some(m => m.id === 'giar')) related.add(p.id); });
     return related;
   }
 
   if (nodeData.type === 'project') {
-    related.add('labo');
+    related.add('giar');
     const proj = DATA.proyectos.find(p => p.id === nodeData.id);
     (proj?.subproyectos ?? []).forEach(sp => related.add(sp.id));
     DATA.personas.forEach(p => { if (p.pertenece.some(m => m.id === nodeData.id)) related.add(p.id); });

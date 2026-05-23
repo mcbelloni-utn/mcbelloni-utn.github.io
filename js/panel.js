@@ -1,7 +1,7 @@
 /**
  * panel.js — Panel de detalle lateral
  *
- * Tipos de nodo soportados: 'labo' | 'project' | 'subproject' | 'person'
+ * Tipos de nodo soportados: 'giar' | 'project' | 'subproject' | 'person'
  * La metadata de proyectos/subproyectos se muestra como "*clave*: valor".
  * Al clickear una persona se muestra su foto.
  */
@@ -42,7 +42,7 @@ export function hidePanel() {
 
 function _html(d) {
   if (d.type === 'person')     return _personHTML(d);
-  if (d.type === 'labo')       return _laboHTML(d);
+  if (d.type === 'giar')       return _giarHTML(d);
   if (d.type === 'project')    return _projectHTML(d);
   if (d.type === 'subproject') return _subprojectHTML(d);
   return '';
@@ -106,8 +106,8 @@ function _personHTML(d) {
   `;
 }
 
-function _laboHTML(d) {
-  const direct = DATA.personas.filter(p => p.pertenece.some(m => m.id === 'labo'));
+function _giarHTML(d) {
+  const direct = DATA.personas.filter(p => p.pertenece.some(m => m.id === 'giar'));
   return `
     <div class="panel-eyebrow">Organización</div>
     <div class="panel-name" style="color:${d.color}"><em>${d.nombre}</em></div>
@@ -121,7 +121,7 @@ function _laboHTML(d) {
       ${_dotList(direct.map(p => ({
         color: d.color,
         label: `${p.nombre} ${p.apellido}`,
-        role: p.pertenece.find(m => m.id === 'labo')?.rol,
+        role: p.pertenece.find(m => m.id === 'giar')?.rol,
       })))}
     ` : ''}
   `;

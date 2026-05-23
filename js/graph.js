@@ -1,9 +1,9 @@
 /**
  * graph.js — Motor de visualización D3
  *
- * Soporta 3 jerarquías: LABO → proyectos → subproyectos → personas
+ * Soporta 3 jerarquías: GIAR → proyectos → subproyectos → personas
  *
- * Tipos de nodo: 'labo' | 'project' | 'subproject' | 'person'
+ * Tipos de nodo: 'giar' | 'project' | 'subproject' | 'person'
  * Tipos de enlace: 'hierarchy' (sólido) | 'membership' (punteado)
  *
  * Exportaciones:
@@ -51,8 +51,8 @@ function resolveColor(c) {
 
 // ─── Construcción de nodos no-persona ─────────────────────────────────────────
 
-const _laboNode = { ...DATA.labo, type: 'labo', radius: 68 };
-_laboNode.color = resolveColor(_laboNode.color);
+const _giarNode = { ...DATA.giar, type: 'giar', radius: 68 };
+_giarNode.color = resolveColor(_giarNode.color);
 
 const _projectNodes = DATA.proyectos.map(({ subproyectos: _s, ...p }) => {
   const n = { ...p, type: 'project', radius: 52 };
@@ -70,13 +70,13 @@ const _subprojectNodes = DATA.proyectos.flatMap(p =>
 
 // Mapa id → nodo para todos los niveles no-persona
 export const nodeMap = Object.fromEntries(
-  [_laboNode, ..._projectNodes, ..._subprojectNodes].map(n => [n.id, n])
+  [_giarNode, ..._projectNodes, ..._subprojectNodes].map(n => [n.id, n])
 );
 
 // ─── Todos los nodos ──────────────────────────────────────────────────────────
 
 export const nodes = [
-  _laboNode,
+  _giarNode,
   ..._projectNodes,
   ..._subprojectNodes,
   ...DATA.personas.map(p => ({ ...p, type: 'person', radius: 26 })),
@@ -86,9 +86,9 @@ export const nodes = [
 
 const links = [];
 
-// LABO → proyectos
+// GIAR → proyectos
 DATA.proyectos.forEach(p => {
-  links.push({ source: 'labo', target: p.id, kind: 'hierarchy', color: nodeMap[p.id].color });
+  links.push({ source: 'giar', target: p.id, kind: 'hierarchy', color: nodeMap[p.id].color });
 });
 
 // proyectos → subproyectos
@@ -138,11 +138,11 @@ export const simulation = d3.forceSimulation(nodes)
       const scale = s < 480 ? 0.5 : s < 700 ? 0.72 : 1;
       if (l.kind === 'membership') return 85 * scale;
       const sid = l.source.id ?? l.source;
-      return (sid === 'labo' ? 160 : 115) * scale;
+      return (sid === 'giar' ? 160 : 115) * scale;
     })
     .strength(l => l.kind === 'hierarchy' ? 0.8 : 0.45))
   .force('charge', d3.forceManyBody().strength(d => {
-    if (d.type === 'labo')       return -1600;
+    if (d.type === 'giar')       return -1600;
     if (d.type === 'project')    return -900;
     if (d.type === 'subproject') return -450;
     return -280;
@@ -177,15 +177,15 @@ export const nodeSel = nodeLayer.selectAll('g.node')
       .on('end',   (e, d) => { if(isTreeMode()) return; if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
   );
 
-// — LABO —
-const laboSel = nodeSel.filter(d => d.type === 'labo');
+// — GIAR —
+const giarSel = nodeSel.filter(d => d.type === 'giar');
 
-laboSel.append('circle')
+giarSel.append('circle')
   .attr('r', d => d.radius)
   .attr('fill', d => d.color)
   .attr('fill-opacity', 0.12);
 
-laboSel.append('circle')
+giarSel.append('circle')
   .attr('r', d => d.radius)
   .attr('fill', 'none')
   .attr('stroke', d => d.color)
@@ -193,8 +193,8 @@ laboSel.append('circle')
   .attr('stroke-width', 1.5)
   .attr('stroke-dasharray', '4 5');
 
-laboSel.append('text')
-  .attr('class', 'labo-label')
+giarSel.append('text')
+  .attr('class', 'giar-label')
   .attr('y', 7)
   .attr('fill', d => d.color)
   .text(d => d.nombre);

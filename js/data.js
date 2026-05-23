@@ -2,7 +2,7 @@
  * data.js — Fuente de verdad del organigrama
  *
  * Estructura de 3 jerarquías:
- *   LABO → proyectos → subproyectos → personas
+ *   GIAR → proyectos → subproyectos → personas
  *
  * Las personas pueden pertenecer a cualquier nivel via el campo `pertenece`.
  * Los proyectos y subproyectos aceptan un objeto `meta` con pares clave-valor
@@ -24,28 +24,28 @@
 export const DATA = {
 
   // ── Nodo raíz ──────────────────────────────────────────────────────────────
-  labo: {
-    id:     'labo',
-    nombre: 'Laboratorio Robótica',
+  giar: {
+    id:     'giar',
+    nombre: 'GIAR',
     color:  '#0E68D8',
     meta: {
-      'Institución': 'UTN.Avellaneda',
-      'Grupo':        'Laboratorio Robótica',
+      'Institución': 'UTN.BA',
+      'Grupo':        'Inteligencia Artificial y Robótica',
     },
   },
 
   // ── Proyectos (con subproyectos opcionales) ────────────────────────────────
   proyectos: [
     {
-      id:     'talos',
-      nombre: 'TALOS (Rover Lunar)',
+      id:     'nanosats',
+      nombre: 'Nanosatélites',
       color:  'var(--c-amber)',
       meta: {
-        'Título del proyecto': 'Diseño de un rover lunar con iA embebida',
+        'Título del proyecto': 'Diseño e implementación del sistema de una computadora de a bordo destinada a nanosatélites',
         'Código': 'BACCEC748',
         'Categoría': 'Electrónica, Computación y Comunicaciones',
-        'Año de inicio': '2027',
-        'Año de finalización': '2030',
+        'Año de inicio': '2026',
+        'Año de finalización': '2029',
       },
       subproyectos: [
         {
@@ -206,11 +206,11 @@ export const DATA = {
     },
     // — Gestión ───────────────────────────────────────────────────────────────
     {
-      id: 'p16', nombre: 'Marcelo', apellido: 'Belloni',
+      id: 'p16', nombre: 'Sebastian', apellido: 'Verrastro',
       rol: 'Electrónica',
-      linkedin: 'https://www.linkedin.com/in/mcbelloni/',
-      meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Esp.', 'Año de incorporación': '2026' },
-      pertenece: [{ id: 'labo', rol: 'Director' }, { id: 'rover', rol: 'Director' }],
+      linkedin: 'https://www.linkedin.com/in/sebastian-verrastro/',
+      meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Master', 'Año de incorporación': '2023' },
+      pertenece: [{ id: 'giar', rol: 'Director' }, { id: 'nanosats', rol: 'Director' }],
     },
     {
       id: 'p17', nombre: 'Facundo Daniel', apellido: 'Repetto',
