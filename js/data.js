@@ -206,10 +206,10 @@ export const DATA = {
     },
     // — Gestión ───────────────────────────────────────────────────────────────
     {
-      id: 'p16', nombre: 'Sebastian', apellido: 'Verrastro',
+      id: 'p16', nombre: 'Marcelo', apellido: 'Belloni',
       rol: 'Electrónica',
-      linkedin: 'https://www.linkedin.com/in/sebastian-verrastro/',
-      meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Master', 'Año de incorporación': '2023' },
+      linkedin: 'https://www.linkedin.com/in/mcbelloni/',
+      meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Esp.', 'Año de incorporación': '2026' },
       pertenece: [{ id: 'giar', rol: 'Director' }, { id: 'nanosats', rol: 'Director' }],
     },
     {
