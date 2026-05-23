@@ -73,6 +73,12 @@ export const DATA = {
           meta:   { 'Objetivo': 'EPS' },
         },
         {
+          id:     'CIEN',
+          nombre: 'Ciencia',
+          color:  'var(--c-sage)',
+          meta:   { 'Objetivo': 'EPS' },
+        },
+        {
           id:     'ESTR',
           nombre: 'Diseño estructural',
           color:  'var(--c-olive)',
@@ -96,21 +102,21 @@ export const DATA = {
 
   // ── Personas ───────────────────────────────────────────────────────────────
   personas: [
-    // — Inactivos ─────────────────────────────────────────────────────────────
-    {
-      id: 'p1', nombre: 'Sapo', apellido: 'Pepe',
-      rol: 'Electrónica',
-      linkedin: null,
-      meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'PhD', 'Año de incorporación': '2023' },
-      pertenece: [{ id: 'rover', rol: 'Oyente' }],
-    },
      // — Gestión ───────────────────────────────────────────────────────────────
     {
-      id: 'p16', nombre: 'Marcelo', apellido: 'Belloni',
+      id: 'p1', nombre: 'Marcelo', apellido: 'Belloni',
       rol: 'Electrónica',
       linkedin: 'https://www.linkedin.com/in/mcbelloni/',
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Esp.', 'Año de incorporación': '2026' },
       pertenece: [{ id: 'labo', rol: 'Director' }, { id: 'rover', rol: 'Director' }],
+    },
+    // — Inactivos ─────────────────────────────────────────────────────────────
+    {
+      id: 'p20', nombre: 'Sapo', apellido: 'Pepe',
+      rol: 'Electrónica',
+      linkedin: null,
+      meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'PhD', 'Año de incorporación': '2023' },
+      pertenece: [{ id: 'rover', rol: 'Oyente' }],
     },
   ],
 };
