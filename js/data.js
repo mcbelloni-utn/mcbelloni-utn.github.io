@@ -29,16 +29,16 @@ export const DATA = {
     nombre: 'LABO',
     color:  '#0E68D8',
     meta: {
-      'Institución': 'UTN.BA',
-      'Grupo':        'Inteligencia Artificial y Robótica',
+      'Institución': 'UTN.Avellaneda',
+      'Grupo':        'Laboratorio de Robótica',
     },
   },
 
   // ── Proyectos (con subproyectos opcionales) ────────────────────────────────
   proyectos: [
     {
-      id:     'nanosats',
-      nombre: 'Nanosatélites',
+      id:     'rover',
+      nombre: 'TALOS (Rover Lunar)',
       color:  'var(--c-amber)',
       meta: {
         'Título del proyecto': 'Diseño e implementación del sistema de una computadora de a bordo destinada a nanosatélites',
@@ -102,49 +102,49 @@ export const DATA = {
       rol: 'Electrónica',
       linkedin: null,
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'PhD', 'Año de incorporación': '2023' },
-      pertenece: [{ id: 'nanosats', rol: 'Oyente' }],
+      pertenece: [{ id: 'rover', rol: 'Oyente' }],
     },
     {
       id: 'p2', nombre: 'Agustin', apellido: 'Diaz Antuña',
       rol: 'Electrónica',
       linkedin: null,
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Ingeniero/Grado', 'Año de incorporación': '2024' },
-      pertenece: [{ id: 'nanosats', rol: 'Oyente' }],
+      pertenece: [{ id: 'rover', rol: 'Oyente' }],
     },
     {
       id: 'p3', nombre: 'Juan', apellido: 'Alarcón',
       rol: 'Electrónica',
       linkedin: 'https://www.linkedin.com/in/juan-alarc%C3%B3n-aa553612a/',
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Ingeniero/Grado', 'Año de incorporación': '2023' },
-      pertenece: [{ id: 'nanosats', rol: 'Co-Director' }],
+      pertenece: [{ id: 'rover', rol: 'Co-Director' }],
     },
     {
       id: 'p4', nombre: 'Lucio', apellido: 'Colautti',
       rol: 'Mecánica',
       linkedin: null,
       meta: { 'Especialidad': 'Ing. Mecánica', 'Nivel': 'Tesista Grado', 'Año de incorporación': '2025' },
-      pertenece: [{ id: 'nanosats', rol: 'Oyente' }],
+      pertenece: [{ id: 'rover', rol: 'Oyente' }],
     },
     {
       id: 'p5', nombre: 'Manuel Elias', apellido: 'Garcia Redondo',
       rol: 'Electrónica',
       linkedin: null,
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'PhD', 'Año de incorporación': '2023' },
-      pertenece: [{ id: 'nanosats', rol: 'Oyente' }],
+      pertenece: [{ id: 'rover', rol: 'Oyente' }],
     },
     {
       id: 'p6', nombre: 'Felipe', apellido: 'Nirino',
       rol: 'Electrónica',
       linkedin: null,
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Ingeniero/Grado', 'Año de incorporación': '2023' },
-      pertenece: [{ id: 'nanosats', rol: 'Oyente' }],
+      pertenece: [{ id: 'rover', rol: 'Oyente' }],
     },
     {
       id: 'p7', nombre: 'Joaquin', apellido: 'Cibeira',
       rol: 'Electrónica',
       linkedin: null,
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Tesista Grado', 'Año de incorporación': '2024' },
-      pertenece: [{ id: 'nanosats', rol: 'Oyente' }],
+      pertenece: [{ id: 'rover', rol: 'Oyente' }],
     },
     // — Concurso CubeDesign ────────────────────────────────────────────────────
     {
@@ -210,7 +210,7 @@ export const DATA = {
       rol: 'Electrónica',
       linkedin: 'https://www.linkedin.com/in/mcbelloni/',
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Esp.', 'Año de incorporación': '2026' },
-      pertenece: [{ id: 'labo', rol: 'Director' }, { id: 'nanosats', rol: 'Director' }],
+      pertenece: [{ id: 'labo', rol: 'Director' }, { id: 'rover', rol: 'Director' }],
     },
     {
       id: 'p17', nombre: 'Facundo Daniel', apellido: 'Repetto',
@@ -231,7 +231,7 @@ export const DATA = {
       rol: 'Electrónica',
       linkedin: 'https://www.linkedin.com/in/lucasliano/',
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Tesista Grado', 'Año de incorporación': '2023' },
-      pertenece: [{ id: 'nanosats', rol: 'Co-Director' }],
+      pertenece: [{ id: 'rover', rol: 'Co-Director' }],
     },
     {
       id: 'p20', nombre: 'Ezequiel', apellido: 'Maceda',
