@@ -70,7 +70,7 @@ const _subprojectNodes = DATA.proyectos.flatMap(p =>
 
 // Mapa id → nodo para todos los niveles no-persona
 export const nodeMap = Object.fromEntries(
-  [_giarNode, ..._projectNodes, ..._subprojectNodes].map(n => [n.id, n])
+  [_laboNode, ..._projectNodes, ..._subprojectNodes].map(n => [n.id, n])
 );
 
 // ─── Todos los nodos ──────────────────────────────────────────────────────────
@@ -86,9 +86,9 @@ export const nodes = [
 
 const links = [];
 
-// GIAR → proyectos
+// LABO → proyectos
 DATA.proyectos.forEach(p => {
-  links.push({ source: 'giar', target: p.id, kind: 'hierarchy', color: nodeMap[p.id].color });
+  links.push({ source: 'labo', target: p.id, kind: 'hierarchy', color: nodeMap[p.id].color });
 });
 
 // proyectos → subproyectos
