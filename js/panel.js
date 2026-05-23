@@ -106,8 +106,8 @@ function _personHTML(d) {
   `;
 }
 
-function _giarHTML(d) {
-  const direct = DATA.personas.filter(p => p.pertenece.some(m => m.id === 'giar'));
+function _laboHTML(d) {
+  const direct = DATA.personas.filter(p => p.pertenece.some(m => m.id === 'labo'));
   return `
     <div class="panel-eyebrow">Organización</div>
     <div class="panel-name" style="color:${d.color}"><em>${d.nombre}</em></div>
@@ -121,7 +121,7 @@ function _giarHTML(d) {
       ${_dotList(direct.map(p => ({
         color: d.color,
         label: `${p.nombre} ${p.apellido}`,
-        role: p.pertenece.find(m => m.id === 'giar')?.rol,
+        role: p.pertenece.find(m => m.id === 'labo')?.rol,
       })))}
     ` : ''}
   `;
