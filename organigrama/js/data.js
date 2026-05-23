@@ -121,6 +121,9 @@ export const DATA = {
     },
   ],
 
+  personas: [datos], // Cargados dinámicamente desde Google Sheets (ver función cargarDatosSheet() más arriba)
+
+  /*
   // ── Personas ───────────────────────────────────────────────────────────────
   personas: [
      // — Gestión ───────────────────────────────────────────────────────────────
@@ -201,5 +204,5 @@ export const DATA = {
       meta: { 'Especialidad': 'Ing. Electrónica', 'Nivel': 'Estudiante', 'Año de incorporación': '2026' },
       pertenece: [{ id: 'gestion', rol: 'Equipo Gestión' }],
     },
-  ],
+  ],*/
 };
