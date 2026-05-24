@@ -24,13 +24,13 @@
 
 // Carga datos desde Google Sheets usando la API de tu Web App de Google Apps Script
 // URL de tu Web App de Google Apps Script
-const URL_API = "https://script.google.com/macros/s/AKfycbzN-oFai6uJk5b4IKp1WkDfHSoUNgINkftWKMgOSOfco67vgqC3UWkjtIY7k0sf2rIPEQ/exec";
-const URL_API_2 = "https://script.google.com/macros/s/AKfycbxFJDSKXvRyxzMOUkDfj3e2kFsOkEGJxQkfDznqjqUHAw-HGrOnsVBcss5SCloWSYY9kw/exec";
+const URL_API1 = "https://script.google.com/macros/s/AKfycbzN-oFai6uJk5b4IKp1WkDfHSoUNgINkftWKMgOSOfco67vgqC3UWkjtIY7k0sf2rIPEQ/exec";
+const URL_API2 = "https://script.google.com/macros/s/AKfycbxFJDSKXvRyxzMOUkDfj3e2kFsOkEGJxQkfDznqjqUHAw-HGrOnsVBcss5SCloWSYY9kw/exec";
 
 
-async function cargarDatosSheet() {
+async function cargarDatosSheet1() {
   try {
-    const response = await fetch(URL_API);
+    const response = await fetch(URL_API1);
     const personas = await response.json();
     
     // Aquí tienes los datos listos para usar en tu JS
@@ -43,7 +43,24 @@ async function cargarDatosSheet() {
   }
 }
 
-const personas = await cargarDatosSheet();
+async function cargarDatosSheet2() {
+  try {
+    const response = await fetch(URL_API2);
+    const proyectos = await response.json();
+    
+    // Aquí tienes los datos listos para usar en tu JS
+    console.log("Datos cargados:", proyectos);
+  
+    return proyectos;
+
+  } catch (error) {
+    console.error("Error al cargar los datos proyectos:", error);
+  }
+}
+
+
+const personas = await cargarDatosSheet1();
+const proyectos = await cargarDatosSheet2();
 
 export const DATA = {
 
@@ -57,7 +74,7 @@ export const DATA = {
       'Grupo':        'Laboratorio de Robótica',
     },
   },
-
+/*
   // ── Proyectos (con subproyectos opcionales) ────────────────────────────────
   proyectos: [
     {
@@ -123,7 +140,9 @@ export const DATA = {
       ],
     },
   ],
+*/
 
+  proyectos : proyectos,
   personas : personas, // Cargados dinámicamente desde Google Sheets (ver función cargarDatosSheet() más arriba)
 
   /*
