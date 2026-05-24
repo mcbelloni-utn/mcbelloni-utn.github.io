@@ -24,9 +24,9 @@
 
 // Carga datos desde Google Sheets usando la API de tu Web App de Google Apps Script
 // URL de tu Web App de Google Apps Script
-const URL_API0 = "https://script.google.com/macros/s/AKfycbx4SuuMkChZefwxaj1l9A4AXreltFt4xkVB79jZL8olx0K4RkcF2QCI_G-5cXr4nd4YQg/exec";
-const URL_API1 = "https://script.google.com/macros/s/AKfycbzN-oFai6uJk5b4IKp1WkDfHSoUNgINkftWKMgOSOfco67vgqC3UWkjtIY7k0sf2rIPEQ/exec";
-const URL_API2 = "https://script.google.com/macros/s/AKfycbxFJDSKXvRyxzMOUkDfj3e2kFsOkEGJxQkfDznqjqUHAw-HGrOnsVBcss5SCloWSYY9kw/exec";
+const URL_API0 = "https://script.google.com/macros/s/AKfycbzKHWzNjS-o8GJRYKoPAWd3iKtyUV85bulSkqqPprz2ulFBaDF8Cz_kD0Bp9vrzxG3n0A/exec";
+const URL_API1 = "https://script.google.com/macros/s/AKfycbzyuS0jqWNCD4zxIvAQFj98T02HIZ4JQmw5LIwZIDaNmptokEKKHY70iX6A4YobxHMF8A/exec";
+const URL_API2 = "https://script.google.com/macros/s/AKfycbwYCmIZSjeoqOCNHWLKUYtYpspcIUNHDf1c1eBV4Jd6VPfPBJ9FMexRaJof50p0EBU4VQ/exec";
 
 
 async function cargarDatosSheet0() {
@@ -86,6 +86,7 @@ export const DATA = {
 
 /*
   // ── Nodo raíz ──────────────────────────────────────────────────────────────
+export const DATA = {
   labo: {
     id:     'labo',
     nombre: 'Lab. Robótica',
@@ -95,8 +96,8 @@ export const DATA = {
       'Grupo':        'Laboratorio de Robótica',
     },
   },
-
-*/
+}
+  */
 
   /*
   // ── Proyectos (con subproyectos opcionales) ────────────────────────────────
