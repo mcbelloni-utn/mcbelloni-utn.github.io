@@ -31,7 +31,7 @@ const URL_API = "https://script.google.com/macros/s/AKfycbzN-oFai6uJk5b4IKp1WkDf
 async function cargarDatosSheet() {
   try {
     const response = await fetch(URL_API);
-    const personas = await response.json();
+    personas = await response.json();
     
     // Aquí tienes los datos listos para usar en tu JS
     console.log("Datos cargados:", personas);
