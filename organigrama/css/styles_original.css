@@ -1,0 +1,578 @@
+/**
+ * styles.css — Estilos globales del organigrama
+ *
+ * Estructura:
+ *   1. Variables CSS (paleta de colores y tokens de diseño)
+ *   2. Reset y tipografía base
+ *   3. Efectos de fondo (granulado y viñeta)
+ *   4. Layout principal (header, main, footer)
+ *   5. Marca / encabezado
+ *   6. Leyenda flotante
+ *   7. Panel de detalle lateral
+ *   8. Nodos y etiquetas SVG
+ *   9. Responsive (móvil)
+ *
+ * ─── PALETA ─────────────────────────────────────────────────────────────────
+ * Para cambiar los colores de los subproyectos editá las variables --c-*
+ * y actualizá el campo `color` en js/data.js si usás 'var(--c-nombre)'.
+ */
+
+/* ── 1. Variables ─────────────────────────────────────────────────────────── */
+:root {
+  /* Fondos */
+  --bg:       #161210;
+  --bg-deep:  #0d0a09;
+
+  /* Tipografía — Gruvbox fg */
+  --ivory:       #ebdbb2;
+  --ivory-dim:   #d5c4a1;
+  --ivory-faint: #a89984;
+
+  /* Líneas y bordes — Gruvbox bg1 / bg0 */
+  --line:      #3c3836;
+  --line-soft: #282828;
+
+  /* Colores de acento — Gruvbox bright
+   *   amber  → bright yellow  #fabd2f
+   *   coral  → bright orange  #fe8019
+   *   sage   → bright green   #b8bb26
+   *   plum   → bright purple  #d3869b
+   *   olive  → bright aqua    #8ec07c
+   *   steel  → bright blue    #83a598
+   */
+  --c-amber: #fabd2f;
+  --c-coral: #fe8019;
+  --c-sage:  #b8bb26;
+  --c-plum:  #d3869b;
+  --c-olive: #8ec07c;
+  --c-steel: #83a598;
+
+  /* Neutrales extra de Gruvbox por si querés usarlos directamente en data.js */
+  --c-red:    #fb4934;
+  --c-yellow: #d79921;
+  --c-blue:   #458588;
+  --c-gray:   #928374;
+}
+
+/* ── 2. Reset y tipografía base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--ivory);
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "ss02";
+}
+
+/* ── 3. Efectos de fondo ──────────────────────────────────────────────────── */
+
+/* Granulado de papel */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Viñeta cálida */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 45%, rgba(250, 189, 47, 0.05), transparent 70%),
+    radial-gradient(ellipse 100% 100% at 50% 100%, rgba(0,0,0,0.4), transparent 60%);
+}
+
+/* ── 4. Layout principal ──────────────────────────────────────────────────── */
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+header {
+  padding: 1.75rem 2.5rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+}
+
+#graph {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+#graph:active { cursor: grabbing; }
+
+footer {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.78rem;
+  color: var(--ivory-faint);
+  pointer-events: none;
+  letter-spacing: 0.02em;
+  z-index: 3;
+  white-space: nowrap;
+  text-align: center;
+}
+footer span { margin: 0 0.5rem; opacity: 0.5; }
+
+/* ── 5. Marca / encabezado ────────────────────────────────────────────────── */
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+}
+
+.brand-mark {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: var(--c-amber);
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}
+.brand-mark::before { content: '✦'; margin-right: 0.4rem; font-style: normal; }
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+h1 em { font-style: italic; color: var(--c-amber); font-weight: 400; }
+
+.eyebrow {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+  margin-bottom: 0.4rem;
+}
+
+/* ── 6. Leyenda flotante ──────────────────────────────────────────────────── */
+.legend {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(22, 18, 16, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 1.25rem 1.4rem;
+  min-width: 220px;
+  z-index: 5;
+}
+
+.legend-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.legend-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.35rem 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.legend-item:hover { opacity: 0.65; }
+
+.legend-item--l1 { padding-left: 0.85rem; }
+.legend-item--l2 { padding-left: 1.7rem; opacity: 0.8; }
+.legend-item--l2:hover { opacity: 0.55; }
+
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transform: translateY(-1px);
+}
+
+.legend-name {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.legend-count {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.72rem;
+  color: var(--ivory-faint);
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── 7. Panel de detalle ──────────────────────────────────────────────────── */
+
+.panel-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.1rem;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.panel-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.panel-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.6rem;
+}
+.panel-meta-item {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.8rem;
+  color: var(--ivory-dim);
+  line-height: 1.5;
+}
+.panel-meta-item em {
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+  color: var(--ivory);
+  font-weight: 400;
+}
+
+
+.panel {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 300px;
+  max-height: 80%;
+  overflow-y: auto;
+  background: rgba(22, 18, 16, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 1.5rem 1.6rem;
+  z-index: 5;
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.panel.visible { opacity: 1; transform: translateX(0); pointer-events: auto; }
+
+.panel-eyebrow {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+  margin-bottom: 0.8rem;
+}
+
+.panel-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 1.7rem;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.2rem;
+}
+.panel-name em { font-style: italic; font-weight: 400; }
+
+.panel-role {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ivory-dim);
+  font-size: 0.95rem;
+  margin-bottom: 1.4rem;
+  line-height: 1.4;
+}
+
+.panel-divider { height: 1px; background: var(--line); margin: 1.2rem 0; }
+
+.panel-projects { display: flex; flex-direction: column; gap: 0.55rem; }
+
+.panel-project {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ivory);
+}
+
+.panel-project-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.panel-project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.panel-project-role {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-style: normal;
+  font-size: 0.65rem;
+  color: var(--ivory-faint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── 8. Nodos y etiquetas SVG ─────────────────────────────────────────────── */
+.link {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-opacity 0.3s ease, stroke-width 0.3s ease;
+}
+
+.node { cursor: pointer; transition: opacity 0.3s ease; }
+
+.node-image-circle {
+  transition: r 0.3s cubic-bezier(0.4, 0, 0.2, 1), stroke-width 0.3s ease;
+}
+
+/* Clase aplicada a nodos/enlaces que no son relevantes en el hover actual */
+.dimmed { opacity: 0.12 !important; }
+
+.node-label {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  fill: var(--ivory);
+  text-anchor: middle;
+  pointer-events: none;
+  letter-spacing: 0.02em;
+}
+
+.node-label-last {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  fill: var(--ivory-dim);
+}
+
+.project-label {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  text-anchor: middle;
+  pointer-events: none;
+  letter-spacing: -0.005em;
+}
+
+.labo-label {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  text-anchor: middle;
+  pointer-events: none;
+  letter-spacing: 0.06em;
+}
+
+/* Botón cerrar panel (solo visible en mobile) */
+.panel-close {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: var(--ivory-faint);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.4rem;
+  z-index: 1;
+  transition: color 0.2s ease;
+}
+.panel-close:hover { color: var(--ivory); }
+
+/* ── 10. Botón de vista de árbol ──────────────────────────────────────────── */
+.layout-btn {
+  position: absolute;
+  bottom: 2.2rem;
+  right: 2rem;
+  z-index: 5;
+  background: rgba(22, 18, 16, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.55rem 1rem;
+  color: var(--ivory-dim);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.layout-btn:hover {
+  color: var(--ivory);
+  border-color: var(--ivory-faint);
+}
+
+.layout-btn.active {
+  color: var(--c-amber);
+  border-color: var(--c-amber);
+}
+
+.layout-btn-icon {
+  font-style: normal;
+  opacity: 0.7;
+}
+
+/* ── 9. Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .legend { display: none; }
+
+  header { padding: 1.25rem 1.25rem 0.85rem; }
+  h1 { font-size: 1.4rem; }
+  .eyebrow { letter-spacing: 0.14em; }
+
+  footer {
+    white-space: normal;
+    font-size: 0.7rem;
+    width: min(320px, 90vw);
+    bottom: 0.5rem;
+  }
+
+  /* Panel como bottom sheet */
+  .panel {
+    overflow-y: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80%;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid var(--line);
+    border-bottom: none;
+    padding-top: 0.9rem;
+    padding-bottom: 1.5rem;
+    opacity: 1;
+    transform: translateY(calc(100% + 2px));
+  }
+  .panel.visible { transform: translateY(0); }
+
+  /* Grab handle */
+  .panel::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--line);
+    margin: 0 auto 0.9rem;
+  }
+
+  .panel-close { display: block; }
+
+  /* Botón árbol arriba para no solaparse con el panel */
+  .layout-btn {
+    top: 1rem;
+    bottom: auto;
+    right: 1rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    gap: 0.3rem;
+  }
+}
+
+@media (pointer: coarse) {
+  .node { cursor: default; }
+  #graph,
+  #graph:active { cursor: default; }
+}
+
+
+
+/* Botón de LinkedIn en panel de persona */
+.panel-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+  padding: 0.38rem 0.8rem;
+  background: rgba(10, 102, 194, 0.1);
+  border: 1px solid rgba(10, 102, 194, 0.28);
+  border-radius: 2px;
+  color: #7ab4e8;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.panel-linkedin:hover {
+  background: rgba(10, 102, 194, 0.2);
+  border-color: rgba(10, 102, 194, 0.5);
+  color: #a8cff5;
+}
+.panel-linkedin svg { flex-shrink: 0; }
+
+/* Badge de rol en vista de árbol */
+.role-badge-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  pointer-events: none;
+}
