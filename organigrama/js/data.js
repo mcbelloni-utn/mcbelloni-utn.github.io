@@ -24,9 +24,9 @@
 
 // Carga datos desde Google Sheets usando la API de tu Web App de Google Apps Script
 // URL de tu Web App de Google Apps Script
-const URL_API0 = "https://script.google.com/macros/s/AKfycbzKHWzNjS-o8GJRYKoPAWd3iKtyUV85bulSkqqPprz2ulFBaDF8Cz_kD0Bp9vrzxG3n0A/exec";
-const URL_API1 = "https://script.google.com/macros/s/AKfycbzyuS0jqWNCD4zxIvAQFj98T02HIZ4JQmw5LIwZIDaNmptokEKKHY70iX6A4YobxHMF8A/exec";
-const URL_API2 = "https://script.google.com/macros/s/AKfycbwYCmIZSjeoqOCNHWLKUYtYpspcIUNHDf1c1eBV4Jd6VPfPBJ9FMexRaJof50p0EBU4VQ/exec";
+const URL_API0 = "https://script.google.com/macros/s/AKfycbyuLEQBtsm7J8haYlp1uBsuMob4yeOU_kq8j9PHUQiGfHkFRw6jAp0tSNoex0JLHsEYAQ/exec";
+const URL_API1 = "https://script.google.com/macros/s/AKfycbyJwDJVwKvIFXA34ypz4iFWlEpdPrJCaQJiT9OwwKSEJuJVLBG3_Zo2LyoKQkbtpaorVQ/exec";
+const URL_API2 = "https://script.google.com/macros/s/AKfycbxFJURuVQHsdvQKnGnFsG__ZxQcekAzLU9Sq7jz4w4tyrHJlLFX7BioDlt8bZuQPEC3gg/exec";
 
 
 async function cargarDatosSheet0() {
