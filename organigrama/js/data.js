@@ -25,8 +25,8 @@
 // Carga datos desde Google Sheets usando la API de tu Web App de Google Apps Script
 // URL de tu Web App de Google Apps Script
 const URL_API = "https://script.google.com/macros/s/AKfycbzN-oFai6uJk5b4IKp1WkDfHSoUNgINkftWKMgOSOfco67vgqC3UWkjtIY7k0sf2rIPEQ/exec";
+const URL_API_2 = "https://script.google.com/macros/s/AKfycbzAffLCoFhHkYv9dfSQDAtomsfyqza6jyzfcg80nAPG_DXhLCMTDKkiT_RR2sT_-IvGXQ/exec";
 
-//let personas = [];
 
 async function cargarDatosSheet() {
   try {
@@ -39,12 +39,11 @@ async function cargarDatosSheet() {
     return personas;
 
   } catch (error) {
-    console.error("Error al cargar los datos:", error);
+    console.error("Error al cargar los datos personas:", error);
   }
 }
 
 const personas = await cargarDatosSheet();
-
 
 export const DATA = {
 
@@ -100,8 +99,8 @@ export const DATA = {
         {
           id:     'CIEN',
           nombre: 'Ciencia',
-          color:  'var(--c-sage)',
-          meta:   { 'Objetivo': 'EPS' },
+          color:  'var(--c-plum)',
+          meta:   { 'Objetivo': 'Ciencia' },
         },
         {
           id:     'ESTR',
@@ -115,11 +114,11 @@ export const DATA = {
         {
           id:     'LAB',
           nombre: 'Laboratorio Físico Químico',
-          color:  'var(--c-plum)',
+          color:  'var(--c-steel)',
           meta:   {
-			 'Objetivo': 'Sin definir.', 
-			 'Colaboración': 'Dto. Ing. Química',
-		  },
+			      'Objetivo': 'Laboratorio Físico Químico', 
+			      'Colaboración': 'Dto. Ing. Química',
+		      },
         },
       ],
     },
