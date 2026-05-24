@@ -35,12 +35,12 @@ async function cargarDatosSheet() {
     
     // Aquí tienes los datos listos para usar en tu JS
     console.log("Datos cargados:", personas);
-        
+  
+    return personas;
+
   } catch (error) {
     console.error("Error al cargar los datos:", error);
   }
-
-  return personas;
 }
 
 cargarDatosSheet();
