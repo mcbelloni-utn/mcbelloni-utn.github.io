@@ -1,0 +1,5 @@
+{
+    "gitlab.duoAgentPlatform.enabled": false,
+    "gitlab.duoChat.enabled": false,
+    "gitlab.duoCodeSuggestions.enabled": false
+}
