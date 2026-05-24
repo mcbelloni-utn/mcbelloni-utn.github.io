@@ -24,9 +24,25 @@
 
 // Carga datos desde Google Sheets usando la API de tu Web App de Google Apps Script
 // URL de tu Web App de Google Apps Script
+const URL_API0 = "https://script.google.com/macros/s/AKfycbx4SuuMkChZefwxaj1l9A4AXreltFt4xkVB79jZL8olx0K4RkcF2QCI_G-5cXr4nd4YQg/exec";
 const URL_API1 = "https://script.google.com/macros/s/AKfycbzN-oFai6uJk5b4IKp1WkDfHSoUNgINkftWKMgOSOfco67vgqC3UWkjtIY7k0sf2rIPEQ/exec";
 const URL_API2 = "https://script.google.com/macros/s/AKfycbxFJDSKXvRyxzMOUkDfj3e2kFsOkEGJxQkfDznqjqUHAw-HGrOnsVBcss5SCloWSYY9kw/exec";
 
+
+async function cargarDatosSheet0() {
+  try {
+    const response = await fetch(URL_API0);
+    const labo = await response.json();
+    
+    // Aquí tienes los datos listos para usar en tu JS
+    console.log("Datos cargados:", labo);
+  
+    return labo;
+
+  } catch (error) {
+    console.error("Error al cargar los datos labo:", error);
+  }
+}
 
 async function cargarDatosSheet1() {
   try {
@@ -58,12 +74,17 @@ async function cargarDatosSheet2() {
   }
 }
 
-
+const labo = await cargarDatosSheet0();
 const personas = await cargarDatosSheet1();
 const proyectos = await cargarDatosSheet2();
 
 export const DATA = {
 
+  labo : labo,
+  proyectos : proyectos,
+  personas : personas, 
+
+/*
   // ── Nodo raíz ──────────────────────────────────────────────────────────────
   labo: {
     id:     'labo',
@@ -74,7 +95,10 @@ export const DATA = {
       'Grupo':        'Laboratorio de Robótica',
     },
   },
-/*
+
+*/
+
+  /*
   // ── Proyectos (con subproyectos opcionales) ────────────────────────────────
   proyectos: [
     {
@@ -141,9 +165,6 @@ export const DATA = {
     },
   ],
 */
-
-  proyectos : proyectos,
-  personas : personas, // Cargados dinámicamente desde Google Sheets (ver función cargarDatosSheet() más arriba)
 
   /*
   // ── Personas ───────────────────────────────────────────────────────────────
